@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  <title> Diagno | ADMIN </title>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="{% static 'dash/css/styles.css' %}" rel="stylesheet" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="{% static 'css/fonts.googleapis.css' %}" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <script type="text/javascript">
+    function menuview(id){
+      if (id == 'profile') {
+        document.getElementById("profile").style = "display:block";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("patients").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+      }else if (id == 'doctors') {
+        document.getElementById("profile").style = "display:none";
+        document.getElementById("doctors").style = "display:block";
+        document.getElementById("patients").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+      }else if (id == 'appointments') {
+        document.getElementById("profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("patients").style = "display:none";
+        document.getElementById("appointments").style = "display:block";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+      }else if (id == 'patients') {
+        document.getElementById("profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("patients").style = "display:block";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+      }else if (id == 'feedback') {
+        document.getElementById("profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("patients").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("feedback").style = "display:block";
+        document.getElementById("settings").style = "display:none";
+      }else if (id == 'settings') {
+        document.getElementById("profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("patients").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("settings").style = "display:block";
+      }
+    }
+    function settingmenu(id){
+      if (id == 'info') {
+        document.getElementById("info").style = "display:block";
+        document.getElementById("password").style = "display:none";
+        document.getElementById("delete").style = "display:none";
+      }else if (id == 'password') {
+        document.getElementById("info").style = "display:none";
+        document.getElementById("password").style = "display:block";
+        document.getElementById("delete").style = "display:none";
+      }else if (id == 'delete') {
+        document.getElementById("info").style = "display:none";
+        document.getElementById("password").style = "display:none";
+        document.getElementById("delete").style = "display:block";
+      }
+    }
+
+    function change(id1,id2,id3,id4){
+      one = document.getElementById(id1);
+      two = document.getElementById(id2);
+      one.style = "display:none";
+      two.style = "display:block";
+      three = document.getElementById(id3);
+      four = document.getElementById(id4);
+      three.style = "display:none";
+      four.style = "height:40px;display:block;";
+    }
+  </script>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <img src="{% static 'images/hero-bg.png' %}" alt="">
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <button class="bar" id="sidebarToggle"><i class="fa fa-ellipsis-v fa-2x"></i> <i class="fa fa-bars fa-2x"></i></button>
+          <a class="navbar-brand" href="/index">
+            <span>
+              Diagno
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <label class="nav-link" >Hello ADMIN !</label>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+      <a href="/dashadmin">
+        <div class="sidebar-heading border-bottom bg-light">
+          <h4 style="padding-top: 10px;color: black;"> Admin Dashboard</h4>
+        </div>
+      </a>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!"><img src="{% static 'images/user/admin.png' %}" style="width:60%;height:auto;border-radius: 50%;margin-left: 20%;"></a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('profile');"><i class="fa fa-user"></i> Profile</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('doctors');"><i class="fa fa-user-md"></i> Doctors</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('patients');"><i class="fa fa-users"></i> Patients</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('appointments');"><i class="fa fa-ticket"></i> Appointments</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('feedback');"><i class="fa fa-comments"></i> Feedbacks</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('settings');"><i class="fa fa-cogs"></i> Settings</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="/admlogout"><i class="fa fa-sign-out"></i> Logout</a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Page content-->
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <center>
+            {% if messages %}
+              {% for message in messages %}
+                <label id="infor">
+                  <span><font color="red"><b>{{ message }}</b></font></span>
+                </label>
+              {% endfor %}
+            {% endif %}
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="profile" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>USER PROFILE</u></b></h2></center>
+          <center>
+          <div class="col-md-8" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding:10% 5%;">
+              <div class="col-md-4">
+                <img src="{% static 'images/user/admin.png' %}" style="width:100%;height:auto;" alt="USER IMAGE">
+              </div>
+              <div class="medium col-md-8" style="padding-left: 0px;">
+                <table style="width:100%;height:100%;">
+                  <tbody>
+                    <tr>
+                      <td>Name</td>
+                      <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td>{{data.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>Security Code</td>
+                      <td>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div id="star">********</div>
+                            <div id="code" style="display:none;">{{data.scode}}</div>
+                          </div>
+                          <div class="col-md-6">
+                            <button class="spbot" id="sbtn" style="height:40px;" onclick="change('star','code','sbtn','hbtn');" type="button">Show</button>
+                            <button class="spbot" id="hbtn" style="height:40px;display:none;" onclick="change('code','star','hbtn','sbtn');" type="button">Hide</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="doctors" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top:2%;"><b><u>DOCTORS</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Experience</th>
+                    <th>Gender</th>
+                    <th>Join Date</th>
+                  </tr>
+                </thead>
+                <tbody class="fsmall">
+                {% if doc %}
+                  {% for dd in doc %}
+                  <tr>
+                    <td>{{dd.did}}</td>
+                    <td>{{dd.name}}</td>
+                    <td>{{dd.spec}}</td>
+                    <td>{{dd.phone}}</td>
+                    <td>{{dd.email}}</td>
+                    <td>{{dd.address}}</td>
+                    <td>{{dd.exper}}</td>
+                    <td>{{dd.gender}}</td>
+                    <td>{{dd.join}}</td>
+                  </tr>
+                  {% endfor %}
+                {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="patients" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>PATIENTS</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>DOB</th>
+                    <th>Blood Group</th>
+                    <th>Gender</th>
+                    <th>Join Date</th>
+                  </tr>
+                </thead>
+                <tbody class="fsmall">
+                  {% if pat %}
+                    {% for pp in pat %}
+                    <tr>
+                      <td>{{pp.uid}}</td>
+                      <td>{{pp.name}}</td>
+                      <td>{{pp.phone}}</td>
+                      <td>{{pp.email}}</td>
+                      <td>{{pp.address}}</td>
+                      <td>{{pp.dob}}</td>
+                      <td>{{pp.bgroup}}</td>
+                      <td>{{pp.gender}}</td>
+                      <td>{{pp.join}}</td>
+                    </tr>
+                    {% endfor %}
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="appointments">
+          <center><h2 class="mb-5" style="padding-top:2%;"><b><u>APPOINTMENTS</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                    <tr>
+                      <th>ID</th>
+                      <th>Patient</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Doctor</th>
+                      <th>Contacts</th>
+                      <th>Specialization</th>
+                      <th>Address</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="fsmall">
+                  {% if appt %}
+                    {% for ap in appt %}
+                    <tr>
+                      <td>{{ap.apid}}</td>
+                      <td>{{ap.uname}}</td>
+                      <td>{{ap.date}}</td>
+                      <td>{{ap.time}}</td>
+                      <td>{{ap.dname}}</td>
+                      <td>{{ap.dphone}}, {{ap.demail}}</td>
+                      <td>{{ap.dspec}}</td>
+                      <td>{{ap.daddress}}</td>
+                      <td>{{ap.status}}</td>
+                    </tr>
+                    {% endfor %}
+                  {% endif %}
+                  </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="feedback" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top:2%;"><b><u>FeedBacks</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                  <tbody class="fsmall">
+                  {% if fdfd %}
+                    {% for fd in fdfd %}
+                    <tr>
+                      <td>{{fd.fid}}</td>
+                      <td>{{fd.name}}</td>
+                      <td>{{fd.phone}}</td>
+                      <td>{{fd.email}}</td>
+                      <td>{{fd.message}}</td>
+                    </tr>
+                    {% endfor %}
+                  {% endif %}
+                  </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="settings" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>SETTINGS</u></b></h2></center>
+          <script>
+            function chkname(){
+              if (document.getElementById("upname").value.length >= 5){
+                document.getElementById("upname").style = "border:2px solid green";
+                document.getElementById("mname").style = "display:none;";
+                return true;
+              }else {
+                document.getElementById("upname").style = "border:2px solid red";
+                document.getElementById("mname").style = "color:red;font-weight:bold;display:block;";
+                return false;
+              }
+            }
+
+            function chkcode(){
+              if (document.getElementById("upscode").value.length == 8){
+                var phnformat =  /^\d{8}$/;
+                if (document.getElementById("upscode").value.match(phnformat)){
+                  document.getElementById("upscode").style = "border:2px solid green";
+                  document.getElementById("mscode").style = "display:none;";
+                  return true;
+                }else{
+                  document.getElementById("upscode").style = "border:2px solid red";
+                  document.getElementById("mscode").style = "color:red;font-weight:bold;display:block;";
+                  return false;
+                }
+              }else {
+                document.getElementById("upscode").style = "border:2px solid red";
+                document.getElementById("mscode").style = "color:red;font-weight:bold;display:block;";
+                return false;
+              }
+            }
+
+            function valid(){
+              nn = chkname();
+              cc = chkcode();
+              if(nn == true && cc == true){
+                return true;
+              }else{
+                return false;
+              }
+            }
+          </script>
+          <center>
+          <div class="col-md-6" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding-top:25px;">
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('info');">Update Info</button>
+              </div>
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('password');">Update Password</button>
+              </div>
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('delete');">Delete Profile</button>
+              </div>
+            </div>
+            <div class="row" style="display:block;padding: 5% 5%;" id="info">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Update Your Profile Info</h3>
+                <br>
+                <form action="/updadminpro/" method="post" onsubmit="return valid();" role="form">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Name</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="{{data.name}}" id="upname" name="namead" onkeyup="return chkname();" />
+                      </div>
+                      <center>
+                        <label id="mname" style="color:red;font-weight:bold;display:none;">Please Enter Valid Name!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Email</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="email" value="{{data.email}}" name="emailad" disabled/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row mb-4">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Security Code</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" value="{{data.scode}}" id="upscode" name="scodead" onkeyup="return chkcode();" />
+                      </div>
+                      <center>
+                        <label id="mscode" style="color:red;font-weight:bold;display:none;">Security Code Should Be 8-Digit Number!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <center>
+                    <div class="col-md-6 btn_box mb-4">
+                      <button class="spbot" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </center>
+                </form>
+              </div>
+            </div>
+            <div class="row" style="display:none;padding: 5% 5%;" id="password">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Update Your Password</h3>
+                <br>
+                <script>
+                  function chkpassword(){
+                    if (document.getElementById("curpass").value.length >= 5 && document.getElementById("curpass").value.length <= 12){
+                      document.getElementById("curpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("mpas").style = "display:none;";
+                      return true;
+                    }else {
+                      document.getElementById("curpass").style = "border:2px solid red";
+                      document.getElementById("mpas").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function newpassword(){
+                    if (document.getElementById("newpass").value.length >= 5 && document.getElementById("newpass").value.length <= 12){
+                      document.getElementById("newpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("npas").style = "display:none;";
+                      return true;
+                    }else {
+                      document.getElementById("newpass").style = "border:2px solid red";
+                      document.getElementById("npas").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function chkconfirm(){
+                    if (document.getElementById("repass").value.length > 0){
+                      if (document.getElementById("newpass").value == document.getElementById("repass").value){
+                        document.getElementById("repass").style = "border:2px solid #62d2a2";
+                        document.getElementById("mcon").style = "display:none;";
+                        return true;
+                      }else {
+                        document.getElementById("repass").style = "border:2px solid red";
+                        document.getElementById("mcon").style = "color:red;font-weight:bold;display:block;";
+                        return false;
+                      }
+                    }else {
+                      document.getElementById("repass").style = "border:2px solid red";
+                      document.getElementById("mcon").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function pform() {
+                    var pp = chkpassword();
+                    var nn = newpassword();
+                    var cc = chkconfirm();
+
+                    if (pp == true && nn == true && cc == true){
+                      return true;
+                    } else {
+                      return false;
+                    }
+                  }
+                </script>
+                <form action="/updadminpass/" onsubmit="return pform();" method="post" role="form" >
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Current Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Your Current Password" name="curpass" id="curpass" onblur="chkpassword();" />
+                      </div>
+                      <center>
+                        <label id="mpas" style="color:red;font-weight:bold;display:none;">Current Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>New Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Your New Password" name="newpass" id="newpass" onblur="newpassword();" />
+                      </div>
+                      <center>
+                        <label id="npas" style="color:red;font-weight:bold;display:none;">New Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="form-row mb-4">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Confirm New Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Confirm New Password" name="repass" id="repass" onkeyup="chkconfirm();" />
+                      </div>
+                      <center>
+                        <label id="mcon" style="color:red;font-weight:bold;display:none;">Password & Confirm Password Not Matched!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <center>
+                    <div class="col-md-6 btn_box mb-4">
+                      <button class="spbot" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </center>
+                </form>
+              </div>
+            </div>
+            <div class="row" style="display:none;padding: 5% 5%;" id="delete">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Delete Your Profile</h3>
+                <br>
+                <script>
+                function deldel(){
+                    document.getElementById("ddel").style = "display:block;";
+                    document.getElementById("dell").style = "display:none;";
+                  }
+
+                  function candel(){
+                    document.getElementById("dell").style = "display:block;";
+                    document.getElementById("ddel").style = "display:none;";
+                    document.getElementById("delpass").value = "";
+                  }
+
+                  function delpassword(){
+                    if (document.getElementById("delpass").value.length >= 5 && document.getElementById("delpass").value.length <= 12){
+                      document.getElementById("delpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("delp").style = "display:none;";
+                      deldel();
+                      return true;
+                    }else {
+                      document.getElementById("delpass").style = "border:2px solid red";
+                      document.getElementById("delp").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                </script>
+                <form action="/deladminpro/" onsubmit="return delpassword();" method="post" role="form">
+                  {% csrf_token %}
+                  <div id="dell" style="display:block;">
+                    <div class="form-row mb-4">
+                      <div class="col-md-6">
+                        <div>
+                          <h5>Enter Your Password</h5>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div>
+                          <input type="password" id="delpass" name="delpass" placeholder="Your Profile Password" onblur="delpassword();" />
+                        </div>
+                        <center>
+                        <label id="delp" style="color:red;font-weight:bold;display:none;">New Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                      </div>
+                    </div>
+                    <center>
+                      <div class="col-md-6 btn_box mb-4">
+                        <a href="#!" class="spbot" onclick="delpassword();">
+                          Delete Profile
+                        </a>
+                      </div>
+                    </center>
+                  </div>
+                  <div id="ddel" style="display:none;">
+                    <div class="col-md-8" style="margin:auto;">
+                      <p style="color:red;" >All Your Data Will Be Erased!!!</p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="submit" class="spbot">Yes, Delete My Account!</button>
+                        </div>
+                        <div class="col-md-6">
+                          <a href="#!" class="spbot" onclick="candel();">No, Don't Delete!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Diagno
+          </h4>
+          <p>Diagno is an Artificial Intelligence based Health Prediction System.</p>
+          <a class="btn" href="#top"><i class="fa fa-arrow-up fa-lg"></i></a>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+             <div class="footer_links">
+              <a class="" href="/index">
+                Home
+              </a>
+              <a class="" href="/doclogin">
+                Doctors Section
+              </a>
+              <a class="" href="/register">
+                Get-Started
+              </a>
+              <a class="" href="/login">
+                Login
+              </a>
+              <a class="active" href="/admin_login">
+                Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Reach at..
+            </h4>
+            <div class="contact_link_box">
+              <a href="#map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:guptashubham14243@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  guptashubham14243@gmail.com
+                </span>
+              </a>
+            <a href="https://www.facebook.com/guptashubham267" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i> facebook.com/guptashubham267
+            </a>
+            <a href="https://www.instagram.com/guptashubham267" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i> instagram.com/guptashubham267
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              About
+            </h4>
+            <p>
+              Diagno is an Artificial Intelligence based Health Prediction System. It is an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          This website is made by <b>Shubham Kumar Gupta</b>. 
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'dash/js/scripts.js' %}"></script>
+
+</body>
+
+</html>

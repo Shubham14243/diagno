@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Diagno | OTP Verification </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="{% static 'css/fonts.googleapis.css' %}" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <script type="text/javascript">
+
+    function matchp(id1,id2){
+      pd = document.getElementById(id1).value;
+      cf = document.getElementById(id2).value;
+      if (cf == pd) {
+        return true;
+      }else {
+        alert('Password & Confirm Password Not Matched!!!');
+        return false;
+      }
+    }
+  </script>
+
+  <div class="hero_area" id="top">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/index">
+            <span>
+              Diagno
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/doctor">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bot" href="/login">Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/d2.jpg' %}" style="width: 95%;" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="display:block;">
+          <div class="form_container contact-form" style="margin-top: 20%;">
+            <script>
+              function chkotp(){
+                var ot = document.getElementById("otp");
+                if(ot.value.length == 6){
+                  ot.style = "border:2px solid green;"
+                  document.getElementById("otpmsg").style = "display:none;";
+                  return true;
+                }else{
+                  ot.style = "border:2px solid red;"
+                  document.getElementById("otpmsg").style = "display:block;";
+                  return false
+                }
+              }
+            </script>
+            <form action="/verifyotp/" method="POST" role="form" onsubmit="return chkotp();">
+              {% csrf_token %}
+              <center>
+                <h3><b>Verify Your OTP</b></h3>
+                <br>
+                <div class="col-md-12">
+                  <center>
+                    {% if messages %}
+                      {% for message in messages %}
+                        <label id="infor">
+                          <span><font color="red"><b>{{ message }}</b></font></span>
+                        </label>
+                      {% endfor %}
+                    {% endif %}
+                  </center>
+                </div>
+                <div class="col-md-10">
+                  <input type="email" id="email" name="mail" value="{{umail}}" required/>
+                </div>
+                <div class="col-md-10">
+                  <input type="password" id="otp" name="otp" placeholder="Enter Received OTP" onkeyup="chkotp();" required/>
+                </div>
+                <div class="col-md-10">
+                  <input type="hidden" id="type" name="type" value="{{type}}" required/>
+                </div>
+                <div class="col-md-10">
+                  <input type="hidden" id="gotp" name="gotp" value="{{gotp}}" required/>
+                </div>
+                <center>
+                  <p id="otpmsg" style="display:none;"><font color="red" size="4">Please Enter a 6-digit OTP Sent to your Registered Email!!</font></p>
+                </center>
+                <div class="col-md-5 btn_box">
+                  <button type="submit">
+                    Submit
+                  </button>
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Diagno
+          </h4>
+          <p>Diagno is an Artificial Intelligence based Health Prediction System.</p>
+          <a class="btn" href="#top"><i class="fa fa-arrow-up fa-lg"></i></a>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+             <div class="footer_links">
+              <a class="" href="/index">
+                Home
+              </a>
+              <a class="" href="/doclogin">
+                Doctors Section
+              </a>
+              <a class="" href="/register">
+                Get-Started
+              </a>
+              <a class="" href="/login">
+                Login
+              </a>
+              <a class="active" href="/admin_login">
+                Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Reach at..
+            </h4>
+            <div class="contact_link_box">
+              <a href="#map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:guptashubham14243@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  guptashubham14243@gmail.com
+                </span>
+              </a>
+            <a href="https://www.facebook.com/guptashubham267" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i> facebook.com/guptashubham267
+            </a>
+            <a href="https://www.instagram.com/guptashubham267" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i> instagram.com/guptashubham267
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              About
+            </h4>
+            <p>
+              Diagno is an Artificial Intelligence based Health Prediction System. It is an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          This website is made by <b>Shubham Kumar Gupta</b>.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+{%load static%}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  <title> Diagno | Home</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="{% static 'css/fonts.googleapis.css' %}" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area" id="top">
+
+    <div class="hero_bg_box">
+      <img src="{% static 'images/hero-bg.png' %}" alt="">
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/index">
+            <span>
+              Diagno
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#feature">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/doctor">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bot" href="/login">Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="detail-box">
+              <h1>
+                We Provide Best<br> Health Diagnosis
+              </h1>
+              <p>
+                      We provide Health Diagnosis in just Few Steps. It is based on Artificial Intelligence for the best outcomes. We provide Health Diagnosis, Doctor Prescription, Report Maintenance and Many More.
+                      <br>
+                      It's just on your finger tips. No need for appointments and paperworks.
+              </p>
+              <div class="btn-box">
+                <a href="/register" class="btn1">
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- department section -->
+
+  <section class="department_section layout_padding" id="feature">
+    <div class="department_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Features
+          </h2>
+          <p>
+            Some of our features that makes us different from others!
+          </p>
+        </div>
+        <div class="row mb-5">
+          <div class="col-md-4">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s1.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Quick Diagnosis
+                </h5>
+                <p>
+                  Diagnosis on the basis of symptoms provided by you!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Experienced Doctors
+                </h5>
+                <p>
+                  Prescription of Experienced Doctors on the basis of your Diagnosed Result!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Health Report
+                </h5>
+                <p>
+                  Maintenance of your Diagnosis Results And Reports on you finger tips!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end department section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_margin-bottom" id="about">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About <span>Us</span>
+              </h2>
+            </div>
+            <p>
+             Diagno is an Artificial Intelligence based Health Prediction System. We have created this system in such a way to provide you an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+             <br>
+             Many people have a busy schedule and thus they don't have time for their health diagnosis. Using this platform anybody can diagnose their health within few minutes. As it is better to know our health condition before it's too late.
+             <br>
+             I'm <b>Shubham Kumar Gupta</b>, Admin of Diago, here to help you with quick diagnosis of your health. I'm continuously working to make it even more better for you.
+             <br><br>
+             Thank You!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- doctor section -->
+
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Doctors
+        </h2>
+        <p class="col-md-10 mx-auto px-0">
+          Here are some of our Highly Skilled and Experienced Doctors!
+        </p>
+      </div>
+      <div class="row">
+        {% if docd %}
+        {% for d in docd %}
+        <div class="col-sm-12 col-lg-3 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/user/doc.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                {{d.name}}
+              </h5>
+              <h6 class="">
+                {{d.email}}
+              </h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="btn-box">
+        <a href="/doctor">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end doctor section -->
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding" id="contact">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Contact Us
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><div class="col-md-12">
+          <center>
+            {% if messages %}
+              {% for message in messages %}
+                <label id="infor">
+                  <span><font color="red"><b>{{ message }}</b></font></span>
+                </label>
+              {% endfor %}
+            {% endif %}
+          </center>
+        </div>
+          <div class="form_container contact-form">
+            <form action="/feedback/" method="POST" role="form">
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-lg-6">
+                  <div>
+                    <input type="text" name="fname" placeholder="Your Name" required/>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div>
+                    <input type="text" name="fphone" placeholder="Phone Number" required/>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <input type="email" name="femail" placeholder="Email" required/>
+              </div>
+              <div>
+                <input type="text" name="fmessage" class="message-box" placeholder="Message" required/>
+              </div>
+              <div class="btn_box">
+                <button type="submit">
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7609.319792862892!2d79.15805899549787!3d12.97374650358637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad47a36f5b0d4b%3A0x983cad8ccde24f9e!2sVIT!5e0!3m2!1sen!2sin!4v1681568625661!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center ">
+        <h2>
+          Feedbacks
+        </h2>
+      </div>
+      <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static 'images/user/admin.png' %}" alt="" />
+                  </div>
+                  <div class="detail-box">
+                    <div class="name">
+                      <h6>
+                        ADMIN
+                      </h6>
+                    </div>
+                    <p>
+                      Please Provide Your Valuable Feedback! <br>It helps us Improve!
+                    </p>
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if feed %}
+          {% for fd in feed %}
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static 'images/user/male.png' %}" alt="" />
+                  </div>
+                  <div class="detail-box">
+                    <div class="name">
+                      <h6>
+                        {{fd.name}}
+                      </h6>
+                    </div>
+                    <p>
+                      {{fd.message}}
+                    </p>
+                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="carousel_btn-container">
+          <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Diagno
+          </h4>
+          <p>Diagno is an Artificial Intelligence based Health Prediction System.</p>
+          <a class="btn" href="#top"><i class="fa fa-arrow-up fa-lg"></i></a>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+             <div class="footer_links">
+              <a class="" href="/index">
+                Home
+              </a>
+              <a class="" href="/doclogin">
+                Doctors Section
+              </a>
+              <a class="" href="/register">
+                Get-Started
+              </a>
+              <a class="" href="/login">
+                Login
+              </a>
+              <a class="active" href="/admin_login">
+                Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Reach at..
+            </h4>
+            <div class="contact_link_box">
+              <a href="#map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:guptashubham14243@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  guptashubham14243@gmail.com
+                </span>
+              </a>
+            <a href="https://www.facebook.com/guptashubham267" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i> facebook.com/guptashubham267
+            </a>
+            <a href="https://www.instagram.com/guptashubham267" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i> instagram.com/guptashubham267
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              About
+            </h4>
+            <p>
+              Diagno is an Artificial Intelligence based Health Prediction System. It is an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          This website is made by <b>Shubham Kumar Gupta</b>. 
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  <title> Diagno | Doctor Login </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="{% static 'css/fonts.googleapis.css' %}" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <script type="text/javascript">
+   function callreset(id1,id2){
+    document.getElementById(id1).style = "display:none";
+    document.getElementById(id2).style = "display:block";
+   }
+
+   function chkemail(){
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (document.getElementById("email").value.match(mailformat)){
+        document.getElementById("email").style = "border:2px solid #62d2a2";
+        document.getElementById("mema").style = "display:none;";
+        return true;
+      }else {
+        document.getElementById("email").style = "border:2px solid red";
+        document.getElementById("mema").style = "color:red;font-weight:bold;display:block;";
+        return false;
+      }
+    }
+
+    function chkpassword(){
+      if (document.getElementById("password").value.length >= 5 && document.getElementById("password").value.length <= 12){
+        document.getElementById("password").style = "border:2px solid #62d2a2";
+        document.getElementById("mpas").style = "display:none;";
+        return true;
+      }else {
+        document.getElementById("password").style = "border:2px solid red";
+        document.getElementById("mpas").style = "color:red;font-weight:bold;display:block;";
+        return false;
+      }
+    }
+
+    function valid(){
+      var ema = chkemail();
+      var pas = chkpassword();
+
+      if (ema == true && pas == true)
+      {
+        return true;
+      }else{
+        return false;
+      }
+    }
+  </script>
+
+  <div class="hero_area" id="top">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/index">
+            <span>
+              Diagno
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/doctor">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bot" href="/docregister">Register Doctor</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/d3.jpg' %}" style="width: 95%;" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" id="login" style="display:block;">
+          <div class="form_container contact-form" style="margin-top: 20%;">
+            <form  role="form" method="POST" action="/logdoc/" onsubmit="return valid();">
+              {% csrf_token %}
+              <center>
+                <h2><b>DOCTOR LOGIN</b></h2>
+                <br>
+                <div class="col-md-12">
+                <center>
+                  {% if messages %}
+                    {% for message in messages %}
+                      <label>
+                        <span><font color="red" size="4"><b>{{ message }}</b></font></span>
+                      </label>
+                    {% endfor %}
+                  {% endif %}
+                </center>
+              </div>
+                <div class="col-md-10">
+                  <input type="email" placeholder="Email" id="email" name="email" onblur="chkemail();"/>
+                </div>
+                <center>
+                  <label id="mema" style="color:red;font-weight:bold;display:none;">Please Enter Valid Email!!!</label>
+                </center>
+                <div class="col-md-10">
+                  <input type="password" placeholder="Password" id="password" name="password" onblur="chkpassword();"/>
+                </div>
+                <center>
+                  <label id="mpas" style="color:red;font-weight:bold;display:none;">Password Should Be 5 - 12 Characters!!!</label>
+                </center>
+                <div class="col-md-5 btn_box">
+                  <button type="submit">
+                    Login
+                  </button>
+                  <br><br>
+                  <a href="#!" class="forgot" onclick="callreset('login','reset');">Forgot Password?</a>
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6" id="reset" style="display:none;">
+          <div class="form_container contact-form" style="margin-top: 20%;">
+            <form action="/dreset/" method="POST" role="form">
+              {% csrf_token %}
+              <center>
+                <h2><b>Reset Your Password</b></h2>
+                <br>
+               <div class="col-md-12">
+                <center>
+                  {% if messages %}
+                    {% for message in messages %}
+                      <label>
+                        <span><font color="red" size="4"><b>{{ message }}</b></font></span>
+                      </label>
+                    {% endfor %}
+                  {% endif %}
+                </center>
+              </div>
+                <div class="col-md-10">
+                  <input type="email" placeholder="Email" name="remail" required/>
+                </div>
+                <div class="col-md-10">
+                  <input type="text" placeholder="Phone" name="rphone" required/>
+                </div>
+                <div class="col-md-5 btn_box">
+                  <button type="submit">
+                    Reset
+                  </button>
+                  <br><br>
+                  <a href="#!" class="forgot" onclick="callreset('reset','login');">Back</a>
+                </div>
+              </center>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Diagno
+          </h4>
+          <p>Diagno is an Artificial Intelligence based Health Prediction System.</p>
+          <a class="btn" href="#top"><i class="fa fa-arrow-up fa-lg"></i></a>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+             <div class="footer_links">
+              <a class="" href="/index">
+                Home
+              </a>
+              <a class="" href="/doclogin">
+                Doctors Section
+              </a>
+              <a class="" href="/register">
+                Get-Started
+              </a>
+              <a class="" href="/login">
+                Login
+              </a>
+              <a class="active" href="/admin_login">
+                Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Reach at..
+            </h4>
+            <div class="contact_link_box">
+              <a href="#map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:guptashubham14243@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  guptashubham14243@gmail.com
+                </span>
+              </a>
+            <a href="https://www.facebook.com/guptashubham267" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i> facebook.com/guptashubham267
+            </a>
+            <a href="https://www.instagram.com/guptashubham267" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i> instagram.com/guptashubham267
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              About
+            </h4>
+            <p>
+              Diagno is an Artificial Intelligence based Health Prediction System. It is an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          This website is made by <b>Shubham Kumar Gupta</b>. 
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

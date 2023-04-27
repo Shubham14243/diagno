@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  <title> Diagno | Dashboard </title>
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="{% static 'dash/css/styles.css' %}" rel="stylesheet" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="{% static 'css/fonts.googleapis.css' %}" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <script type="text/javascript">
+    function menuview(id){
+      if (id == 'user_profile') {
+        document.getElementById("user_profile").style = "display:block";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'doctors') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:block";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'appointments') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:block";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'report') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:block";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'history') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:block";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'feedback') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:none";
+        document.getElementById("feedback").style = "display:block";
+        document.getElementById("diagnose").style = "display:none";
+      }else if (id == 'settings') {
+        document.getElementById("user_profile").style = "display:none";
+        document.getElementById("doctors").style = "display:none";
+        document.getElementById("appointments").style = "display:none";
+        document.getElementById("report").style = "display:none";
+        document.getElementById("history").style = "display:none";
+        document.getElementById("settings").style = "display:block";
+        document.getElementById("feedback").style = "display:none";
+        document.getElementById("diagnose").style = "display:none";
+      }
+    }
+    function settingmenu(id){
+      if (id == 'info') {
+        document.getElementById("info").style = "display:block";
+        document.getElementById("password").style = "display:none";
+        document.getElementById("delete").style = "display:none";
+      }else if (id == 'password') {
+        document.getElementById("info").style = "display:none";
+        document.getElementById("password").style = "display:block";
+        document.getElementById("delete").style = "display:none";
+      }else if (id == 'delete') {
+        document.getElementById("info").style = "display:none";
+        document.getElementById("password").style = "display:none";
+        document.getElementById("delete").style = "display:block";
+      }
+    }
+  </script>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <img src="{% static 'images/hero-bg.png' %}" alt="">
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <button class="bar" id="sidebarToggle"><i class="fa fa-ellipsis-v fa-2x"></i> <i class="fa fa-bars fa-2x"></i></button>
+          <a class="navbar-brand" href="/index">
+            <span>
+              Diagno
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <label class="nav-link" >Hello {{data.name}}!</label>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bot" href="/dashuser">Diagnose Health</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+      <a href="/dashuser">
+        <div class="sidebar-heading border-bottom bg-light">
+          <h4 style="padding-top: 10px;color: black;"> User Dashboard</h4>
+        </div>
+      </a>
+      <div class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!">
+          {% if data.gender == 'male' %}
+          <img src="{% static 'images/user/male.png' %}" style="width:60%;height:auto;border-radius: 50%;margin-left: 20%;">
+          {% else %}
+          <img src="{% static 'images/user/female.png' %}" style="width:60%;height:auto;border-radius: 50%;margin-left: 20%;">
+          {% endif %}
+        </a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('user_profile');"><i class="fa fa-user"></i> Profile</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('doctors');"><i class="fa fa-user-md"></i> Doctors</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('appointments');"><i class="fa fa-ticket"></i> Appointments</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('report');"><i class="fa fa-list-alt"></i> Report</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('history');"><i class="fa fa-history"></i> History</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('feedback');"><i class="fa fa-comments"></i> Feedback</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="#!" onclick="menuview('settings');"><i class="fa fa-cogs"></i> Settings</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3 sidebtn" href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+      </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+      <!-- Page content-->
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <center>
+            {% if messages %}
+              {% for message in messages %}
+                <label id="infor">
+                  <span><font color="red"><b>{{ message }}</b></font></span>
+                </label>
+              {% endfor %}
+            {% endif %}
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="diagnose">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>DIAGNOSE HEALTH</u></b></h2></center>
+          <center>
+          <div class="col-md-6" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding:5% 5%;">
+              <div class="col-md-12">
+                <br>
+                <form action="/diag/" method="POST" role="form">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Symptom 1</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <select class="form-control" name="s1">
+                          <option value="">SELECT</option>
+
+                          <option value="abdominal_pain">Abdominal Pain</option>
+                          <option value="abnormal_menstruation">Abnormal Menstruation</option>
+                          <option value="acidity">Acidity</option>
+                          <option value="acute_liver_failure">Acute Liver Failure</option>
+                          <option value="altered_sensorium">Altered Sensorium</option>
+
+                          <option value="anxiety">Anxiety</option>
+                          <option value="back_pain">Back Pain</option>
+                          <option value="belly_pain">Belly Pain</option>
+                          <option value="blackheads">Blackheads</option>
+                          <option value="bladder_discomfort">Bladder Discomfort</option>
+
+                          <option value="blister">Blister</option>
+                          <option value="blood_in_sputum">Blood In Sputum</option>
+                          <option value="bloody_stool">Blood In Stool</option>
+                          <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+                          <option value="breathlessness">Breathlessness</option>
+
+                          <option value="brittle_nails">Brittle Nails</option>
+                          <option value="bruising">Bruising</option>
+                          <option value="burning_micturition">Burning Micturition</option>
+                          <option value="chest_pain">Chest Pain</option>
+                          <option value="chills">Chills</option>
+
+                          <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+                          <option value="coma">Coma</option>
+                          <option value="congestion">Congestion</option>
+                          <option value="constipation">Constipation</option>
+                          <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+
+                          <option value="continuous_sneezing">Continuous Sneezing</option>
+                          <option value="cough">Cough</option>
+                          <option value="cramps">Cramps</option>
+                          <option value="dark_urine">Dark Urine</option>
+                          <option value="dehydration">Dehydration</option>
+
+                          <option value="depression">Depression</option>
+                          <option value="diarrhoea">Diarrhoea</option>
+                          <option value="dischromic_patches">Dischromic Patches</option>
+                          <option value="distention_of_abdomen">Distention of Abdomen</option>
+                          <option value="dizziness">Dizziness</option>
+
+                          <option value="drying_and_tingling_lips">Drying and Tingling of Lips</option>
+                          <option value="enlarged_thyroid">Enlarged Thyroid</option>
+                          <option value="excessive_hunger">Excessive Hunger</option>
+                          <option value="extra_marital_contacts">Extra Marital Contacts</option>
+                          <option value="family_history">Family History</option>
+
+                          <option value="fast_heart_rate">Fast Heart Rate</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="foul_smell_of urine">Foul Smell Of Urine</option>
+
+                          <option value="headache">Headache</option>
+                          <option value="high_fever">High Fever</option>
+                          <option value="hip_joint_pain">Hip Joint Pain</option>
+                          <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+                          <option value="increased_appetite">Increased Appetite</option>
+
+                          <option value="indigestion">Indigestion</option>
+                          <option value="inflammatory_nails">Inflammatory Nails</option>
+                          <option value="internal_itching">Internal Itching</option>
+                          <option value="irregular_sugar_level">Irregular Sugar Levels</option>
+                          <option value="irritability">Irritability</option>
+
+                          <option value="irritation_in_anus">Irritation in anus</option>
+                          <option value="itching">Itching</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="knee_pain">Knee Pain</option>
+                          <option value="lack_of_concentration">Lack of Concentration</option>
+
+                          <option value="lethargy">Lethargy</option>
+                          <option value="loss_of_appetite">Loss of Appetite</option>
+                          <option value="loss_of_balance">Loss of Balance</option>
+                          <option value="loss_of_smell">Loss of Smell</option>
+                          <option value="malaise">Malaise</option>
+
+                          <option value="mild_fever">Mild Fever</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="movement_stiffness">Movement Stiffness</option>
+                          <option value="mucoid_sputum">Mucoid Sputum</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+
+                          <option value="muscle_wasting">Muscle Wasting</option>
+                          <option value="muscle_weakness">Muscle Weakness</option>
+                          <option value="nausea">Nausea</option>
+                          <option value="neck_pain">Neck Pain</option>
+                          <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+
+                          <option value="obesity">Obesity</option>
+                          <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+                          <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+                          <option value="pain_in_anal_region">Pain in Anal Region</option>
+                          <option value="painful_walking">Painful Walking</option>
+
+                          <option value="palpitations">Palpitations</option>
+                          <option value="passage_of_gases">Passage of Gasses</option>
+                          <option value="patches_in_throat">Patches in Throat</option>
+                          <option value="phlegm">Phlegm</option>
+                          <option value="polyuria">Polyuria</option>
+
+                          <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+                          <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+                          <option value="pus_filled_pimples">Puss Filled Pimples</option>
+                          <option value="receiving_blood_transfusion">Receiving Blood Transfusions</option>
+                          <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+
+                          <option value="red_sore_around_nose">Red Sore around Nose</option>
+                          <option value="red_spots_over_body">Red Spots over Body</option>
+                          <option value="redness_of_eyes">Redness of Eyes</option>
+                          <option value="restlessness">Restlessness</option>
+                          <option value="runny_nose">Runny Nose</option>
+
+                          <option value="rusty_sputum">Rusty Sputum</option>
+                          <option value="scurring">Scurring</option>
+                          <option value="shivering">Shivering</option>
+                          <option value="silver_like_dusting">Silver like Dusting</option>
+                          <option value="sinus_pressure">Sinus Pressure</option>
+
+                          <option value="skin_peeling">Skin Peeling</option>
+                          <option value="skin_rash">Skin Rash</option>
+                          <option value="slurred_speech">Slurred Speech</option>
+                          <option value="small_dents_in_nails">Small Dents in Nail</option>
+                          <option value="spinning_movements">Spinning Movements</option>
+
+                          <option value="spotting_ urination">Spotting Urination</option>
+                          <option value="stiff_neck">Stiff Neck</option>
+                          <option value="stomach_bleeding">Stomach Bleeding</option>
+                          <option value="stomach_pain">Stomach Pain</option>
+                          <option value="sunken_eyes">Sunken Eyes</option>
+
+                          <option value="sweating">Sweating</option>
+                          <option value="swelled_lymph_nodes">Swelled Nymph Nodes</option>
+                          <option value="swelling_joints">Swelling Nose</option>
+                          <option value="swelling_of_stomach">Swelling of Stomach</option>
+                          <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+
+                          <option value="swollen_extremeties">Swollen Extremeties</option>
+                          <option value="swollen_legs">Swollen Legs</option>
+                          <option value="throat_irritation">Throat Irritation</option>
+                          <option value="toxic_look_(typhos)">Toxic Look(Typhos)</option>
+                          <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+
+                          <option value="unsteadiness">Unsteadiness</option>
+                          <option value="visual_disturbances">Visual Disturbance</option>
+                          <option value="vomiting">Vomiting</option>
+                          <option value="watering_from_eyes">Watering from Eyes</option>
+                          <option value="weakness_in_limbs">Weakness in Limbs</option>
+
+                          <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="weight_loss">Weight Loss</option>
+                          <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+                          <option value="yellow_urine">Yellow Urine</option>
+
+                          <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+                          <option value="yellowish_skin">Yellowish Skin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Symptom 2</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <select class="form-control" name="s2">
+                          <option value="">SELECT</option>
+
+                          <option value="abdominal_pain">Abdominal Pain</option>
+                          <option value="abnormal_menstruation">Abnormal Menstruation</option>
+                          <option value="acidity">Acidity</option>
+                          <option value="acute_liver_failure">Acute Liver Failure</option>
+                          <option value="altered_sensorium">Altered Sensorium</option>
+
+                          <option value="anxiety">Anxiety</option>
+                          <option value="back_pain">Back Pain</option>
+                          <option value="belly_pain">Belly Pain</option>
+                          <option value="blackheads">Blackheads</option>
+                          <option value="bladder_discomfort">Bladder Discomfort</option>
+
+                          <option value="blister">Blister</option>
+                          <option value="blood_in_sputum">Blood In Sputum</option>
+                          <option value="bloody_stool">Blood In Stool</option>
+                          <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+                          <option value="breathlessness">Breathlessness</option>
+
+                          <option value="brittle_nails">Brittle Nails</option>
+                          <option value="bruising">Bruising</option>
+                          <option value="burning_micturition">Burning Micturition</option>
+                          <option value="chest_pain">Chest Pain</option>
+                          <option value="chills">Chills</option>
+
+                          <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+                          <option value="coma">Coma</option>
+                          <option value="congestion">Congestion</option>
+                          <option value="constipation">Constipation</option>
+                          <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+
+                          <option value="continuous_sneezing">Continuous Sneezing</option>
+                          <option value="cough">Cough</option>
+                          <option value="cramps">Cramps</option>
+                          <option value="dark_urine">Dark Urine</option>
+                          <option value="dehydration">Dehydration</option>
+
+                          <option value="depression">Depression</option>
+                          <option value="diarrhoea">Diarrhoea</option>
+                          <option value="dischromic_patches">Dischromic Patches</option>
+                          <option value="distention_of_abdomen">Distention of Abdomen</option>
+                          <option value="dizziness">Dizziness</option>
+
+                          <option value="drying_and_tingling_lips">Drying and Tingling of Lips</option>
+                          <option value="enlarged_thyroid">Enlarged Thyroid</option>
+                          <option value="excessive_hunger">Excessive Hunger</option>
+                          <option value="extra_marital_contacts">Extra Marital Contacts</option>
+                          <option value="family_history">Family History</option>
+
+                          <option value="fast_heart_rate">Fast Heart Rate</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="foul_smell_of urine">Foul Smell Of Urine</option>
+
+                          <option value="headache">Headache</option>
+                          <option value="high_fever">High Fever</option>
+                          <option value="hip_joint_pain">Hip Joint Pain</option>
+                          <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+                          <option value="increased_appetite">Increased Appetite</option>
+
+                          <option value="indigestion">Indigestion</option>
+                          <option value="inflammatory_nails">Inflammatory Nails</option>
+                          <option value="internal_itching">Internal Itching</option>
+                          <option value="irregular_sugar_level">Irregular Sugar Levels</option>
+                          <option value="irritability">Irritability</option>
+
+                          <option value="irritation_in_anus">Irritation in anus</option>
+                          <option value="itching">Itching</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="knee_pain">Knee Pain</option>
+                          <option value="lack_of_concentration">Lack of Concentration</option>
+
+                          <option value="lethargy">Lethargy</option>
+                          <option value="loss_of_appetite">Loss of Appetite</option>
+                          <option value="loss_of_balance">Loss of Balance</option>
+                          <option value="loss_of_smell">Loss of Smell</option>
+                          <option value="malaise">Malaise</option>
+
+                          <option value="mild_fever">Mild Fever</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="movement_stiffness">Movement Stiffness</option>
+                          <option value="mucoid_sputum">Mucoid Sputum</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+
+                          <option value="muscle_wasting">Muscle Wasting</option>
+                          <option value="muscle_weakness">Muscle Weakness</option>
+                          <option value="nausea">Nausea</option>
+                          <option value="neck_pain">Neck Pain</option>
+                          <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+
+                          <option value="obesity">Obesity</option>
+                          <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+                          <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+                          <option value="pain_in_anal_region">Pain in Anal Region</option>
+                          <option value="painful_walking">Painful Walking</option>
+
+                          <option value="palpitations">Palpitations</option>
+                          <option value="passage_of_gases">Passage of Gasses</option>
+                          <option value="patches_in_throat">Patches in Throat</option>
+                          <option value="phlegm">Phlegm</option>
+                          <option value="polyuria">Polyuria</option>
+
+                          <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+                          <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+                          <option value="pus_filled_pimples">Puss Filled Pimples</option>
+                          <option value="receiving_blood_transfusion">Receiving Blood Transfusions</option>
+                          <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+
+                          <option value="red_sore_around_nose">Red Sore around Nose</option>
+                          <option value="red_spots_over_body">Red Spots over Body</option>
+                          <option value="redness_of_eyes">Redness of Eyes</option>
+                          <option value="restlessness">Restlessness</option>
+                          <option value="runny_nose">Runny Nose</option>
+
+                          <option value="rusty_sputum">Rusty Sputum</option>
+                          <option value="scurring">Scurring</option>
+                          <option value="shivering">Shivering</option>
+                          <option value="silver_like_dusting">Silver like Dusting</option>
+                          <option value="sinus_pressure">Sinus Pressure</option>
+
+                          <option value="skin_peeling">Skin Peeling</option>
+                          <option value="skin_rash">Skin Rash</option>
+                          <option value="slurred_speech">Slurred Speech</option>
+                          <option value="small_dents_in_nails">Small Dents in Nail</option>
+                          <option value="spinning_movements">Spinning Movements</option>
+
+                          <option value="spotting_ urination">Spotting Urination</option>
+                          <option value="stiff_neck">Stiff Neck</option>
+                          <option value="stomach_bleeding">Stomach Bleeding</option>
+                          <option value="stomach_pain">Stomach Pain</option>
+                          <option value="sunken_eyes">Sunken Eyes</option>
+
+                          <option value="sweating">Sweating</option>
+                          <option value="swelled_lymph_nodes">Swelled Nymph Nodes</option>
+                          <option value="swelling_joints">Swelling Nose</option>
+                          <option value="swelling_of_stomach">Swelling of Stomach</option>
+                          <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+
+                          <option value="swollen_extremeties">Swollen Extremeties</option>
+                          <option value="swollen_legs">Swollen Legs</option>
+                          <option value="throat_irritation">Throat Irritation</option>
+                          <option value="toxic_look_(typhos)">Toxic Look(Typhos)</option>
+                          <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+
+                          <option value="unsteadiness">Unsteadiness</option>
+                          <option value="visual_disturbances">Visual Disturbance</option>
+                          <option value="vomiting">Vomiting</option>
+                          <option value="watering_from_eyes">Watering from Eyes</option>
+                          <option value="weakness_in_limbs">Weakness in Limbs</option>
+
+                          <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="weight_loss">Weight Loss</option>
+                          <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+                          <option value="yellow_urine">Yellow Urine</option>
+
+                          <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+                          <option value="yellowish_skin">Yellowish Skin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Symptom 3</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <select class="form-control" name="s3">
+                          <option value="">SELECT</option>
+
+                          <option value="abdominal_pain">Abdominal Pain</option>
+                          <option value="abnormal_menstruation">Abnormal Menstruation</option>
+                          <option value="acidity">Acidity</option>
+                          <option value="acute_liver_failure">Acute Liver Failure</option>
+                          <option value="altered_sensorium">Altered Sensorium</option>
+
+                          <option value="anxiety">Anxiety</option>
+                          <option value="back_pain">Back Pain</option>
+                          <option value="belly_pain">Belly Pain</option>
+                          <option value="blackheads">Blackheads</option>
+                          <option value="bladder_discomfort">Bladder Discomfort</option>
+
+                          <option value="blister">Blister</option>
+                          <option value="blood_in_sputum">Blood In Sputum</option>
+                          <option value="bloody_stool">Blood In Stool</option>
+                          <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+                          <option value="breathlessness">Breathlessness</option>
+
+                          <option value="brittle_nails">Brittle Nails</option>
+                          <option value="bruising">Bruising</option>
+                          <option value="burning_micturition">Burning Micturition</option>
+                          <option value="chest_pain">Chest Pain</option>
+                          <option value="chills">Chills</option>
+
+                          <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+                          <option value="coma">Coma</option>
+                          <option value="congestion">Congestion</option>
+                          <option value="constipation">Constipation</option>
+                          <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+
+                          <option value="continuous_sneezing">Continuous Sneezing</option>
+                          <option value="cough">Cough</option>
+                          <option value="cramps">Cramps</option>
+                          <option value="dark_urine">Dark Urine</option>
+                          <option value="dehydration">Dehydration</option>
+
+                          <option value="depression">Depression</option>
+                          <option value="diarrhoea">Diarrhoea</option>
+                          <option value="dischromic_patches">Dischromic Patches</option>
+                          <option value="distention_of_abdomen">Distention of Abdomen</option>
+                          <option value="dizziness">Dizziness</option>
+
+                          <option value="drying_and_tingling_lips">Drying and Tingling of Lips</option>
+                          <option value="enlarged_thyroid">Enlarged Thyroid</option>
+                          <option value="excessive_hunger">Excessive Hunger</option>
+                          <option value="extra_marital_contacts">Extra Marital Contacts</option>
+                          <option value="family_history">Family History</option>
+
+                          <option value="fast_heart_rate">Fast Heart Rate</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="foul_smell_of urine">Foul Smell Of Urine</option>
+
+                          <option value="headache">Headache</option>
+                          <option value="high_fever">High Fever</option>
+                          <option value="hip_joint_pain">Hip Joint Pain</option>
+                          <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+                          <option value="increased_appetite">Increased Appetite</option>
+
+                          <option value="indigestion">Indigestion</option>
+                          <option value="inflammatory_nails">Inflammatory Nails</option>
+                          <option value="internal_itching">Internal Itching</option>
+                          <option value="irregular_sugar_level">Irregular Sugar Levels</option>
+                          <option value="irritability">Irritability</option>
+
+                          <option value="irritation_in_anus">Irritation in anus</option>
+                          <option value="itching">Itching</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="knee_pain">Knee Pain</option>
+                          <option value="lack_of_concentration">Lack of Concentration</option>
+
+                          <option value="lethargy">Lethargy</option>
+                          <option value="loss_of_appetite">Loss of Appetite</option>
+                          <option value="loss_of_balance">Loss of Balance</option>
+                          <option value="loss_of_smell">Loss of Smell</option>
+                          <option value="malaise">Malaise</option>
+
+                          <option value="mild_fever">Mild Fever</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="movement_stiffness">Movement Stiffness</option>
+                          <option value="mucoid_sputum">Mucoid Sputum</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+
+                          <option value="muscle_wasting">Muscle Wasting</option>
+                          <option value="muscle_weakness">Muscle Weakness</option>
+                          <option value="nausea">Nausea</option>
+                          <option value="neck_pain">Neck Pain</option>
+                          <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+
+                          <option value="obesity">Obesity</option>
+                          <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+                          <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+                          <option value="pain_in_anal_region">Pain in Anal Region</option>
+                          <option value="painful_walking">Painful Walking</option>
+
+                          <option value="palpitations">Palpitations</option>
+                          <option value="passage_of_gases">Passage of Gasses</option>
+                          <option value="patches_in_throat">Patches in Throat</option>
+                          <option value="phlegm">Phlegm</option>
+                          <option value="polyuria">Polyuria</option>
+
+                          <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+                          <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+                          <option value="pus_filled_pimples">Puss Filled Pimples</option>
+                          <option value="receiving_blood_transfusion">Receiving Blood Transfusions</option>
+                          <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+
+                          <option value="red_sore_around_nose">Red Sore around Nose</option>
+                          <option value="red_spots_over_body">Red Spots over Body</option>
+                          <option value="redness_of_eyes">Redness of Eyes</option>
+                          <option value="restlessness">Restlessness</option>
+                          <option value="runny_nose">Runny Nose</option>
+
+                          <option value="rusty_sputum">Rusty Sputum</option>
+                          <option value="scurring">Scurring</option>
+                          <option value="shivering">Shivering</option>
+                          <option value="silver_like_dusting">Silver like Dusting</option>
+                          <option value="sinus_pressure">Sinus Pressure</option>
+
+                          <option value="skin_peeling">Skin Peeling</option>
+                          <option value="skin_rash">Skin Rash</option>
+                          <option value="slurred_speech">Slurred Speech</option>
+                          <option value="small_dents_in_nails">Small Dents in Nail</option>
+                          <option value="spinning_movements">Spinning Movements</option>
+
+                          <option value="spotting_ urination">Spotting Urination</option>
+                          <option value="stiff_neck">Stiff Neck</option>
+                          <option value="stomach_bleeding">Stomach Bleeding</option>
+                          <option value="stomach_pain">Stomach Pain</option>
+                          <option value="sunken_eyes">Sunken Eyes</option>
+
+                          <option value="sweating">Sweating</option>
+                          <option value="swelled_lymph_nodes">Swelled Nymph Nodes</option>
+                          <option value="swelling_joints">Swelling Nose</option>
+                          <option value="swelling_of_stomach">Swelling of Stomach</option>
+                          <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+
+                          <option value="swollen_extremeties">Swollen Extremeties</option>
+                          <option value="swollen_legs">Swollen Legs</option>
+                          <option value="throat_irritation">Throat Irritation</option>
+                          <option value="toxic_look_(typhos)">Toxic Look(Typhos)</option>
+                          <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+
+                          <option value="unsteadiness">Unsteadiness</option>
+                          <option value="visual_disturbances">Visual Disturbance</option>
+                          <option value="vomiting">Vomiting</option>
+                          <option value="watering_from_eyes">Watering from Eyes</option>
+                          <option value="weakness_in_limbs">Weakness in Limbs</option>
+
+                          <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="weight_loss">Weight Loss</option>
+                          <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+                          <option value="yellow_urine">Yellow Urine</option>
+
+                          <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+                          <option value="yellowish_skin">Yellowish Skin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Symptom 4</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <select class="form-control" name="s4">
+                          <option value="">SELECT</option>
+
+                          <option value="abdominal_pain">Abdominal Pain</option>
+                          <option value="abnormal_menstruation">Abnormal Menstruation</option>
+                          <option value="acidity">Acidity</option>
+                          <option value="acute_liver_failure">Acute Liver Failure</option>
+                          <option value="altered_sensorium">Altered Sensorium</option>
+
+                          <option value="anxiety">Anxiety</option>
+                          <option value="back_pain">Back Pain</option>
+                          <option value="belly_pain">Belly Pain</option>
+                          <option value="blackheads">Blackheads</option>
+                          <option value="bladder_discomfort">Bladder Discomfort</option>
+
+                          <option value="blister">Blister</option>
+                          <option value="blood_in_sputum">Blood In Sputum</option>
+                          <option value="bloody_stool">Blood In Stool</option>
+                          <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+                          <option value="breathlessness">Breathlessness</option>
+
+                          <option value="brittle_nails">Brittle Nails</option>
+                          <option value="bruising">Bruising</option>
+                          <option value="burning_micturition">Burning Micturition</option>
+                          <option value="chest_pain">Chest Pain</option>
+                          <option value="chills">Chills</option>
+
+                          <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+                          <option value="coma">Coma</option>
+                          <option value="congestion">Congestion</option>
+                          <option value="constipation">Constipation</option>
+                          <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+
+                          <option value="continuous_sneezing">Continuous Sneezing</option>
+                          <option value="cough">Cough</option>
+                          <option value="cramps">Cramps</option>
+                          <option value="dark_urine">Dark Urine</option>
+                          <option value="dehydration">Dehydration</option>
+
+                          <option value="depression">Depression</option>
+                          <option value="diarrhoea">Diarrhoea</option>
+                          <option value="dischromic_patches">Dischromic Patches</option>
+                          <option value="distention_of_abdomen">Distention of Abdomen</option>
+                          <option value="dizziness">Dizziness</option>
+
+                          <option value="drying_and_tingling_lips">Drying and Tingling of Lips</option>
+                          <option value="enlarged_thyroid">Enlarged Thyroid</option>
+                          <option value="excessive_hunger">Excessive Hunger</option>
+                          <option value="extra_marital_contacts">Extra Marital Contacts</option>
+                          <option value="family_history">Family History</option>
+
+                          <option value="fast_heart_rate">Fast Heart Rate</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="foul_smell_of urine">Foul Smell Of Urine</option>
+
+                          <option value="headache">Headache</option>
+                          <option value="high_fever">High Fever</option>
+                          <option value="hip_joint_pain">Hip Joint Pain</option>
+                          <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+                          <option value="increased_appetite">Increased Appetite</option>
+
+                          <option value="indigestion">Indigestion</option>
+                          <option value="inflammatory_nails">Inflammatory Nails</option>
+                          <option value="internal_itching">Internal Itching</option>
+                          <option value="irregular_sugar_level">Irregular Sugar Levels</option>
+                          <option value="irritability">Irritability</option>
+
+                          <option value="irritation_in_anus">Irritation in anus</option>
+                          <option value="itching">Itching</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="knee_pain">Knee Pain</option>
+                          <option value="lack_of_concentration">Lack of Concentration</option>
+
+                          <option value="lethargy">Lethargy</option>
+                          <option value="loss_of_appetite">Loss of Appetite</option>
+                          <option value="loss_of_balance">Loss of Balance</option>
+                          <option value="loss_of_smell">Loss of Smell</option>
+                          <option value="malaise">Malaise</option>
+
+                          <option value="mild_fever">Mild Fever</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="movement_stiffness">Movement Stiffness</option>
+                          <option value="mucoid_sputum">Mucoid Sputum</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+
+                          <option value="muscle_wasting">Muscle Wasting</option>
+                          <option value="muscle_weakness">Muscle Weakness</option>
+                          <option value="nausea">Nausea</option>
+                          <option value="neck_pain">Neck Pain</option>
+                          <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+
+                          <option value="obesity">Obesity</option>
+                          <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+                          <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+                          <option value="pain_in_anal_region">Pain in Anal Region</option>
+                          <option value="painful_walking">Painful Walking</option>
+
+                          <option value="palpitations">Palpitations</option>
+                          <option value="passage_of_gases">Passage of Gasses</option>
+                          <option value="patches_in_throat">Patches in Throat</option>
+                          <option value="phlegm">Phlegm</option>
+                          <option value="polyuria">Polyuria</option>
+
+                          <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+                          <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+                          <option value="pus_filled_pimples">Puss Filled Pimples</option>
+                          <option value="receiving_blood_transfusion">Receiving Blood Transfusions</option>
+                          <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+
+                          <option value="red_sore_around_nose">Red Sore around Nose</option>
+                          <option value="red_spots_over_body">Red Spots over Body</option>
+                          <option value="redness_of_eyes">Redness of Eyes</option>
+                          <option value="restlessness">Restlessness</option>
+                          <option value="runny_nose">Runny Nose</option>
+
+                          <option value="rusty_sputum">Rusty Sputum</option>
+                          <option value="scurring">Scurring</option>
+                          <option value="shivering">Shivering</option>
+                          <option value="silver_like_dusting">Silver like Dusting</option>
+                          <option value="sinus_pressure">Sinus Pressure</option>
+
+                          <option value="skin_peeling">Skin Peeling</option>
+                          <option value="skin_rash">Skin Rash</option>
+                          <option value="slurred_speech">Slurred Speech</option>
+                          <option value="small_dents_in_nails">Small Dents in Nail</option>
+                          <option value="spinning_movements">Spinning Movements</option>
+
+                          <option value="spotting_ urination">Spotting Urination</option>
+                          <option value="stiff_neck">Stiff Neck</option>
+                          <option value="stomach_bleeding">Stomach Bleeding</option>
+                          <option value="stomach_pain">Stomach Pain</option>
+                          <option value="sunken_eyes">Sunken Eyes</option>
+
+                          <option value="sweating">Sweating</option>
+                          <option value="swelled_lymph_nodes">Swelled Nymph Nodes</option>
+                          <option value="swelling_joints">Swelling Nose</option>
+                          <option value="swelling_of_stomach">Swelling of Stomach</option>
+                          <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+
+                          <option value="swollen_extremeties">Swollen Extremeties</option>
+                          <option value="swollen_legs">Swollen Legs</option>
+                          <option value="throat_irritation">Throat Irritation</option>
+                          <option value="toxic_look_(typhos)">Toxic Look(Typhos)</option>
+                          <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+
+                          <option value="unsteadiness">Unsteadiness</option>
+                          <option value="visual_disturbances">Visual Disturbance</option>
+                          <option value="vomiting">Vomiting</option>
+                          <option value="watering_from_eyes">Watering from Eyes</option>
+                          <option value="weakness_in_limbs">Weakness in Limbs</option>
+
+                          <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="weight_loss">Weight Loss</option>
+                          <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+                          <option value="yellow_urine">Yellow Urine</option>
+
+                          <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+                          <option value="yellowish_skin">Yellowish Skin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row mb-4">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Symptom 5</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <select class="form-control" name="s5">
+                          <option value="">SELECT</option>
+
+                          <option value="abdominal_pain">Abdominal Pain</option>
+                          <option value="abnormal_menstruation">Abnormal Menstruation</option>
+                          <option value="acidity">Acidity</option>
+                          <option value="acute_liver_failure">Acute Liver Failure</option>
+                          <option value="altered_sensorium">Altered Sensorium</option>
+
+                          <option value="anxiety">Anxiety</option>
+                          <option value="back_pain">Back Pain</option>
+                          <option value="belly_pain">Belly Pain</option>
+                          <option value="blackheads">Blackheads</option>
+                          <option value="bladder_discomfort">Bladder Discomfort</option>
+
+                          <option value="blister">Blister</option>
+                          <option value="blood_in_sputum">Blood In Sputum</option>
+                          <option value="bloody_stool">Blood In Stool</option>
+                          <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+                          <option value="breathlessness">Breathlessness</option>
+
+                          <option value="brittle_nails">Brittle Nails</option>
+                          <option value="bruising">Bruising</option>
+                          <option value="burning_micturition">Burning Micturition</option>
+                          <option value="chest_pain">Chest Pain</option>
+                          <option value="chills">Chills</option>
+
+                          <option value="cold_hands_and_feets">Cold Hands and Feets</option>
+                          <option value="coma">Coma</option>
+                          <option value="congestion">Congestion</option>
+                          <option value="constipation">Constipation</option>
+                          <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+
+                          <option value="continuous_sneezing">Continuous Sneezing</option>
+                          <option value="cough">Cough</option>
+                          <option value="cramps">Cramps</option>
+                          <option value="dark_urine">Dark Urine</option>
+                          <option value="dehydration">Dehydration</option>
+
+                          <option value="depression">Depression</option>
+                          <option value="diarrhoea">Diarrhoea</option>
+                          <option value="dischromic_patches">Dischromic Patches</option>
+                          <option value="distention_of_abdomen">Distention of Abdomen</option>
+                          <option value="dizziness">Dizziness</option>
+
+                          <option value="drying_and_tingling_lips">Drying and Tingling of Lips</option>
+                          <option value="enlarged_thyroid">Enlarged Thyroid</option>
+                          <option value="excessive_hunger">Excessive Hunger</option>
+                          <option value="extra_marital_contacts">Extra Marital Contacts</option>
+                          <option value="family_history">Family History</option>
+
+                          <option value="fast_heart_rate">Fast Heart Rate</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="fluid_overload">Fluid Overload</option>
+                          <option value="foul_smell_of urine">Foul Smell Of Urine</option>
+
+                          <option value="headache">Headache</option>
+                          <option value="high_fever">High Fever</option>
+                          <option value="hip_joint_pain">Hip Joint Pain</option>
+                          <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+                          <option value="increased_appetite">Increased Appetite</option>
+
+                          <option value="indigestion">Indigestion</option>
+                          <option value="inflammatory_nails">Inflammatory Nails</option>
+                          <option value="internal_itching">Internal Itching</option>
+                          <option value="irregular_sugar_level">Irregular Sugar Levels</option>
+                          <option value="irritability">Irritability</option>
+
+                          <option value="irritation_in_anus">Irritation in anus</option>
+                          <option value="itching">Itching</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="knee_pain">Knee Pain</option>
+                          <option value="lack_of_concentration">Lack of Concentration</option>
+
+                          <option value="lethargy">Lethargy</option>
+                          <option value="loss_of_appetite">Loss of Appetite</option>
+                          <option value="loss_of_balance">Loss of Balance</option>
+                          <option value="loss_of_smell">Loss of Smell</option>
+                          <option value="malaise">Malaise</option>
+
+                          <option value="mild_fever">Mild Fever</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="movement_stiffness">Movement Stiffness</option>
+                          <option value="mucoid_sputum">Mucoid Sputum</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+
+                          <option value="muscle_wasting">Muscle Wasting</option>
+                          <option value="muscle_weakness">Muscle Weakness</option>
+                          <option value="nausea">Nausea</option>
+                          <option value="neck_pain">Neck Pain</option>
+                          <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+
+                          <option value="obesity">Obesity</option>
+                          <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+                          <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+                          <option value="pain_in_anal_region">Pain in Anal Region</option>
+                          <option value="painful_walking">Painful Walking</option>
+
+                          <option value="palpitations">Palpitations</option>
+                          <option value="passage_of_gases">Passage of Gasses</option>
+                          <option value="patches_in_throat">Patches in Throat</option>
+                          <option value="phlegm">Phlegm</option>
+                          <option value="polyuria">Polyuria</option>
+
+                          <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+                          <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+                          <option value="pus_filled_pimples">Puss Filled Pimples</option>
+                          <option value="receiving_blood_transfusion">Receiving Blood Transfusions</option>
+                          <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+
+                          <option value="red_sore_around_nose">Red Sore around Nose</option>
+                          <option value="red_spots_over_body">Red Spots over Body</option>
+                          <option value="redness_of_eyes">Redness of Eyes</option>
+                          <option value="restlessness">Restlessness</option>
+                          <option value="runny_nose">Runny Nose</option>
+
+                          <option value="rusty_sputum">Rusty Sputum</option>
+                          <option value="scurring">Scurring</option>
+                          <option value="shivering">Shivering</option>
+                          <option value="silver_like_dusting">Silver like Dusting</option>
+                          <option value="sinus_pressure">Sinus Pressure</option>
+
+                          <option value="skin_peeling">Skin Peeling</option>
+                          <option value="skin_rash">Skin Rash</option>
+                          <option value="slurred_speech">Slurred Speech</option>
+                          <option value="small_dents_in_nails">Small Dents in Nail</option>
+                          <option value="spinning_movements">Spinning Movements</option>
+
+                          <option value="spotting_ urination">Spotting Urination</option>
+                          <option value="stiff_neck">Stiff Neck</option>
+                          <option value="stomach_bleeding">Stomach Bleeding</option>
+                          <option value="stomach_pain">Stomach Pain</option>
+                          <option value="sunken_eyes">Sunken Eyes</option>
+
+                          <option value="sweating">Sweating</option>
+                          <option value="swelled_lymph_nodes">Swelled Nymph Nodes</option>
+                          <option value="swelling_joints">Swelling Nose</option>
+                          <option value="swelling_of_stomach">Swelling of Stomach</option>
+                          <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+
+                          <option value="swollen_extremeties">Swollen Extremeties</option>
+                          <option value="swollen_legs">Swollen Legs</option>
+                          <option value="throat_irritation">Throat Irritation</option>
+                          <option value="toxic_look_(typhos)">Toxic Look(Typhos)</option>
+                          <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+
+                          <option value="unsteadiness">Unsteadiness</option>
+                          <option value="visual_disturbances">Visual Disturbance</option>
+                          <option value="vomiting">Vomiting</option>
+                          <option value="watering_from_eyes">Watering from Eyes</option>
+                          <option value="weakness_in_limbs">Weakness in Limbs</option>
+
+                          <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="weight_loss">Weight Loss</option>
+                          <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+                          <option value="yellow_urine">Yellow Urine</option>
+
+                          <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+                          <option value="yellowish_skin">Yellowish Skin</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <center>
+                    <div class="col-md-6 btn_box mb-2">
+                      <button class="spbot" type="submit">
+                        Diagnose
+                      </button>
+                    </div>
+                  </center>
+                </form>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="user_profile" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>USER PROFILE</u></b></h2></center>
+          <center>
+          <div class="col-md-8" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding:10% 5%;">
+              <div class="col-md-5">
+                <center>
+                  {% if data.gender == 'male' %}
+                    <img src="{% static 'images/user/male.png' %}" style="width:80%;height:auto;" alt="USER IMAGE">
+                  {% else %}
+                    <img src="{% static 'images/user/female.png' %}" style="width:80%;height:auto;" alt="USER IMAGE">
+                  {% endif %}
+                </center>
+              </div>
+              <div class="medium col-md-7" style="padding-left: 0px;">
+                <table style="width:100%;height:100%;">
+                  <tbody>
+                    <tr>
+                      <td>Name</td>
+                      <td>{{data.name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Phone</td>
+                      <td>{{data.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td>{{data.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>Date Of Birth</td>
+                      <td>{{data.dob}}</td>
+                    </tr>
+                    <tr>
+                      <td>Blood Group</td>
+                      <td>{{data.bgroup}}</td>
+                    </tr>
+                    <tr>
+                      <td>Address</td>
+                      <td>{{data.address}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="doctors" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>DOCTORS</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                  <tr>
+                    <th>Name</th>
+                    <th>Specialisation</th>
+                    <th>Experience</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                  </tr>
+                </thead>
+                <tbody class="fsmall">
+                {% if doc %}
+                  {% for dd in doc %}
+                  <tr>
+                    <td>{{ dd.name }}</td>
+                    <td>{{ dd.spec }}</td>
+                    <td>{{dd.exper}}</td>
+                    <td>{{dd.phone}}</td>
+                    <td>{{dd.email}}</td>
+                    <td>{{dd.address}}</td>
+                  </tr>
+                  {% endfor %}
+                {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="appointments" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>APPOINTMENTS</u></b></h2></center>
+          <center>
+            <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+              <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+                <table class="table" style="width:100%;height:100%;">
+                  <thead class="medium">
+                    <tr>
+                      <th>ID</th>
+                      <th>Patient</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Doctor</th>
+                      <th>Contacts</th>
+                      <th>Specialization</th>
+                      <th>Address</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="fsmall">
+                  {% if app %}
+                    {% for ap in app %}
+                    <tr>
+                      <td>{{ap.apid}}</td>
+                      <td>{{ap.uname}}</td>
+                      <td>{{ap.date}}</td>
+                      <td>{{ap.time}}</td>
+                      <td>{{ap.dname}}</td>
+                      <td>{{ap.dphone}}, {{ap.demail}}</td>
+                      <td>{{ap.dspec}}</td>
+                      <td>{{ap.daddress}}</td>
+                      <td>{{ap.status}}</td>
+                      <td>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <a href="#upup" onclick="disdis();"><button class="sbtn"><i class="fa fa-pencil"></i></button></a>
+                            </div>
+                            <div class="col-md-6">
+                              <form action="/delapp/" method="POST" role="form">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ap.apid}}" name="apid">
+                                <button class="sbtn" type="submit"><i class="fa fa-trash"></i></button>
+                              </form>
+                            </div>
+                        </div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <script type="text/javascript">
+              function disdis() {
+                document.getElementById("upup").style = "display:block;";
+              }
+              function quitquit() {
+                document.getElementById("upup").style = "display:none;";
+              }
+            </script>
+            <div class="row col-md-12" id="upup" style="display:none;">
+              <div class="col-md-6" style="margin:auto;">
+                <center><h2 class="mb-5" style="padding-top: 6%;"><b><u>UPDATE APPOINTMENT</u></b></h2></center>
+                <div style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+                  <form action="/updapp/" method="post" role="form" style="padding:20px 20px;">
+                    {% csrf_token %}
+                    <div class="row col-md-12">
+                      <div class="col-md-6">
+                        <h5><b>Appointment ID :</b></h5>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input class="form-control" type="text" name="apid">
+                      </div>
+                      <div class="col-md-6">
+                        <h5><b>New Date :</b></h5>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <input class="form-control" type="date" name="apdate">
+                      </div>
+                      <div class="col-md-6">
+                        <h5><b>New Time :</b></h5>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <input class="form-control" type="time" name="aptime">
+                      </div>
+                      <div class="col-md-6" style="margin:auto;">
+                        <button type="submit" class="spbot">Update</button>
+                        <a href="#appointments"><button type="button" onclick="quitquit();" class="spbot">Cancel</button></a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="report" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>REPORT</u></b></h2></center>
+          <center>
+          <div class="col-md-10" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            {% if rep %}
+            <div class="row" style="padding-top:25px;">
+              <div class="col-md-4">
+                <h3><b>DIAGNO</b></h3>
+              </div>
+              <div class="col-md-4">
+                <h3><u>Health Report</u></h3>
+              </div>
+              <div class="col-md-4">
+                <h4>{{rep.hdate}} <span> , {{rep.htime}}</span></h4>
+              </div>
+            </div>
+            <div class="row" style="padding: 5% 5%;">
+              <div class="medium col-md-8" style="padding-left: 50px;">
+                <table style="width:100%;height:100%;border-right:2px solid black;">
+                  <tbody>
+                    <tr>
+                      <td>Symptom1</td>
+                      <td>{{rep.sym1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Symptom2</td>
+                      <td>{{rep.sym2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Symptom3</td>
+                      <td>{{rep.sym3}}</td>
+                    </tr>
+                    <tr>
+                      <td>Symptom4</td>
+                      <td>{{rep.sym4}}</td>
+                    </tr>
+                    <tr>
+                      <td>Symptom5</td>
+                      <td>{{rep.sym5}}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Prdicted Disease</b></td>
+                      <td><b>{{rep.disease}}</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-4">
+                <h3><b>Prescribed Doctor</b></h3>
+                <br>
+                <h4><b>{{ rep.dname }}</b></h4>
+                <h4>{{ rep.dspec }}</h4>
+                <h5>{{ rep.dphone }}</h5>
+                <h5>{{ rep.demail }}</h5>
+                <h4>{{ rep.daddress }}</h4>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="history" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>HISTORY</u></b></h2></center>
+          <center>
+          <div class="col-md-12" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="border-radius: 10px;padding:3% 3%;height: 450px;overflow-y: scroll;">
+              <table class="table" style="width:100%;height:100%;">
+                <thead class="medium">
+                  <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Doctor</th>
+                    <th>Contacts</th>
+                    <th>Address</th>
+                    <th>Symptom1</th>
+                    <th>Symptom2</th>
+                    <th>Symptom3</th>
+                    <th>Symptom4</th>
+                    <th>Symptom5</th>
+                    <th>Disease</th>
+                  </tr>
+                </thead>
+                <tbody class="fsmall">
+                {% if his %}
+                  {% for hh in his %}
+                    <tr>
+                      <td>{{hh.hid}}</td>
+                      <td>{{hh.hdate}}</td>
+                      <td>{{hh.htime}}</td>
+                      <td>{{hh.dname}}, {{hh.dspec}}</td>
+                      <td>{{hh.dphone}}, {{hh.demail}}</td>
+                      <td>{{hh.daddress}}</td>
+                      <td>{{hh.sym1}}</td>
+                      <td>{{hh.sym2}}</td>
+                      <td>{{hh.sym3}}</td>
+                      <td>{{hh.sym4}}</td>
+                      <td>{{hh.sym5}}</td>
+                      <td>{{hh.disease}}</td>
+                    </tr>
+                  {% endfor %}
+                {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="feedback" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>Feedback</u></b></h2></center>
+          <center>
+          <div class="col-md-6" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding:5% 5%;">
+              <div class="col-md-12">
+                <br>
+                <form action="/feedback/" method="POST" role="form">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <input type="text" name="fname" class="form-control" value="{{data.name}}" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div>
+                        <input type="text" name="fphone" class="form-control" value="{{data.phone}}" required>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <div>
+                        <input type="email" name="femail" class="form-control" value="{{data.email}}" required>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <textarea name="fmessage" class="form-control" placeholder="Message" rows="10" required></textarea>
+                    </div>
+                  </div>
+                  <br>
+                  <center>
+                    <div class="col-md-6 btn_box mb-2">
+                      <button class="spbot" type="submit">
+                        Send
+                      </button>
+                    </div>
+                  </center>
+                </form>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+        <div class="col-md-12 mb-5" id="settings" style="display:none;">
+          <center><h2 class="mb-5" style="padding-top: 2%;"><b><u>SETTINGS</u></b></h2></center>
+          <center>
+          <div class="col-md-6" style="background-color: #9dffcc;border-radius: 10px;box-shadow:10px 10px 5px lightgray;">
+            <div class="row" style="padding-top:25px;">
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('info');">Update Info</button>
+              </div>
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('password');">Update Password</button>
+              </div>
+              <div class="col-md-4">
+                <button class="spbot" onclick="settingmenu('delete');">Delete Profile</button>
+              </div>
+            </div>
+            <hr>
+            <div class="row" style="display:block;padding: 5% 5%;" id="info">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Update Your Profile Info</h3>
+                <br>
+                <script>
+                  function chkdob() {
+                    var dd = document.getElementById("dob");
+                    if (!dd.value || dd.value == "Enter Your DOB!")
+                    {
+                      alert("Please Enter Your Date Of Birth!!!");
+                      return false;
+                    } else {
+                      return true;
+                    }
+                  }
+                </script>
+                <form action="/updpro/" method="post" onsubmit="return chkdob();" role="form">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Name</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="{{data.name}}" name="uname" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Phone</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="{{data.phone}}" name="uphone" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Email</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="email" value="{{data.email}}" name="usemail" disabled/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Date Of Birth</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="Enter Your DOB!" onfocus="this.type='date';" id="dob" name="udob" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Blood Group</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="{{data.bgroup}}" name="ubld" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row mb-4">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Address</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="text" value="{{data.address}}" name="uadd" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <center>
+                    <div class="col-md-6 btn_box mb-4">
+                      <button class="spbot" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </center>
+                </form>
+                <hr>
+              </div>
+            </div>
+            <div class="row" style="display:none;padding: 5% 5%;" id="password">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Update Your Password</h3>
+                <br>
+                <script>
+                  function chkpassword(){
+                    if (document.getElementById("curpass").value.length >= 5 && document.getElementById("curpass").value.length <= 12){
+                      document.getElementById("curpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("mpas").style = "display:none;";
+                      return true;
+                    }else {
+                      document.getElementById("curpass").style = "border:2px solid red";
+                      document.getElementById("mpas").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function newpassword(){
+                    if (document.getElementById("newpass").value.length >= 5 && document.getElementById("newpass").value.length <= 12){
+                      document.getElementById("newpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("npas").style = "display:none;";
+                      return true;
+                    }else {
+                      document.getElementById("newpass").style = "border:2px solid red";
+                      document.getElementById("npas").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function chkconfirm(){
+                    if (document.getElementById("repass").value.length > 0){
+                      if (document.getElementById("newpass").value == document.getElementById("repass").value){
+                        document.getElementById("repass").style = "border:2px solid #62d2a2";
+                        document.getElementById("mcon").style = "display:none;";
+                        return true;
+                      }else {
+                        document.getElementById("repass").style = "border:2px solid red";
+                        document.getElementById("mcon").style = "color:red;font-weight:bold;display:block;";
+                        return false;
+                      }
+                    }else {
+                      document.getElementById("repass").style = "border:2px solid red";
+                      document.getElementById("mcon").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                  function pform() {
+                    var pp = chkpassword();
+                    var nn = newpassword();
+                    var cc = chkconfirm();
+
+                    if (pp == true && nn == true && cc == true){
+                      return true;
+                    } else {
+                      return false;
+                    }
+                  }
+                </script>
+                <form action="/updpass/" onsubmit="return pform();" method="post" role="form" >
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Current Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Your Current Password" name="curpass" id="curpass" onblur="chkpassword();" />
+                      </div>
+                      <center>
+                        <label id="mpas" style="color:red;font-weight:bold;display:none;">Current Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>New Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Your New Password" name="newpass" id="newpass" onblur="newpassword();" />
+                      </div>
+                      <center>
+                        <label id="npas" style="color:red;font-weight:bold;display:none;">New Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <div class="form-row mb-4">
+                    <div class="col-md-6">
+                      <div>
+                        <h5>Confirm New Password</h5>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div>
+                        <input type="password" placeholder="Confirm New Password" name="repass" id="repass" onkeyup="chkconfirm();" />
+                      </div>
+                      <center>
+                        <label id="mcon" style="color:red;font-weight:bold;display:none;">Password & Confirm Password Not Matched!!!</label>
+                      </center>
+                    </div>
+                  </div>
+                  <center>
+                    <div class="col-md-6 btn_box mb-4">
+                      <button class="spbot" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </center>
+                </form>
+                <hr>
+              </div>
+            </div>
+            <div class="row" style="display:none;padding: 5% 5%;" id="delete">
+              <br>
+              <div class="col-md-12 form_container contact-form" style="padding-left: 50px;">
+                <h3>Delete Your Profile</h3>
+                <br>
+                <script>
+                function deldel(){
+                    document.getElementById("ddel").style = "display:block;";
+                    document.getElementById("dell").style = "display:none;";
+                  }
+
+                  function candel(){
+                    document.getElementById("dell").style = "display:block;";
+                    document.getElementById("ddel").style = "display:none;";
+                    document.getElementById("delpass").value = "";
+                  }
+
+                  function delpassword(){
+                    if (document.getElementById("delpass").value.length >= 5 && document.getElementById("delpass").value.length <= 12){
+                      document.getElementById("delpass").style = "border:2px solid #62d2a2";
+                      document.getElementById("delp").style = "display:none;";
+                      deldel();
+                      return true;
+                    }else {
+                      document.getElementById("delpass").style = "border:2px solid red";
+                      document.getElementById("delp").style = "color:red;font-weight:bold;display:block;";
+                      return false;
+                    }
+                  }
+                </script>
+                <form action="/delpro/" onsubmit="return delpassword();" method="post" role="form">
+                  {% csrf_token %}
+                  <div id="dell" style="display:block;">
+                    <div class="form-row mb-4">
+                      <div class="col-md-6">
+                        <div>
+                          <h5>Enter Your Password</h5>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div>
+                          <input type="password" id="delpass" name="delpass" placeholder="Your Profile Password" onblur="delpassword();" />
+                        </div>
+                        <center>
+                        <label id="delp" style="color:red;font-weight:bold;display:none;">New Password Should Be 5 - 12 Characters!!!</label>
+                      </center>
+                      </div>
+                    </div>
+                    <center>
+                      <div class="col-md-6 btn_box mb-4">
+                        <a href="#!" class="spbot" onclick="delpassword();">
+                          Delete Profile
+                        </a>
+                      </div>
+                    </center>
+                  </div>
+                  <div id="ddel" style="display:none;">
+                    <div class="col-md-8" style="margin:auto;">
+                      <p style="color:red;" >All Your Data Will Be Erased!!!</p>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="submit" class="spbot">Yes, Delete My Account!</button>
+                        </div>
+                        <div class="col-md-6">
+                          <a href="#!" class="spbot" onclick="candel();">No, Don't Delete!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <hr>
+              </div>
+            </div>
+          </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Diagno
+          </h4>
+          <p>Diagno is an Artificial Intelligence based Health Prediction System.</p>
+          <a class="btn" href="#top"><i class="fa fa-arrow-up fa-lg"></i></a>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+             <div class="footer_links">
+              <a class="" href="/index">
+                Home
+              </a>
+              <a class="" href="/doclogin">
+                Doctors Section
+              </a>
+              <a class="" href="/register">
+                Get-Started
+              </a>
+              <a class="" href="/login">
+                Login
+              </a>
+              <a class="active" href="/admin_login">
+                Admin Panel
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Reach at..
+            </h4>
+            <div class="contact_link_box">
+              <a href="#map">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="mailto:guptashubham14243@gmail.com">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  guptashubham14243@gmail.com
+                </span>
+              </a>
+            <a href="https://www.facebook.com/guptashubham267" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i> facebook.com/guptashubham267
+            </a>
+            <a href="https://www.instagram.com/guptashubham267" target="_blank">
+              <i class="fa fa-instagram" aria-hidden="true"></i> instagram.com/guptashubham267
+            </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              About
+            </h4>
+            <p>
+              Diagno is an Artificial Intelligence based Health Prediction System. It is an easy, convinient,time-saving and reliable platform for diagnosis of your health. You can diagnose your health in few simple steps.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          This website is made by <b>Shubham Kumar Gupta</b>. 
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="{% static 'js/popper.min.js' %}" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'dash/js/scripts.js' %}"></script>
+
+</body>
+
+</html>
