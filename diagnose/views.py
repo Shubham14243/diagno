@@ -432,7 +432,7 @@ def login_user(request):
         if var is True:
             otp = random.randint(000000,999999)
             message = "Thanks for chosing Diagno for Health Diagnosis.\nPlease refer to the OTP for Login/Registration purpose.\n OTP = "+str(otp)+"\nThank You\nAdmin\nDiagno - Health Prediction"
-            sendemail = send_mail('Verify OTP',message,'Diagno - Health Diagnosis',[email],fail_silently=False)
+            sendemail = send_mail('Verify OTP',message,'Diagno - Health Diagnosis',[email],fail_silently=True)
             if sendemail:
                 messages.success(request, 'OTP sent to Email Successfully!')
                 return render(request, 'otpverify.html', {'umail': email, 'type': 'user', 'gotp':otp})
