@@ -45,7 +45,7 @@ for i in range(0, len(l1)):
     l2.append(0)
 
 
-pickled_model = pickle.load(open('model.pkl', 'rb'))
+pickled_model = pickle.load(open(r'/home/ubuntu/diagno/diagnose/model.pkl', 'rb'))
 
 
 
